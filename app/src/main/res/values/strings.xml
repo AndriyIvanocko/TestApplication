@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <!--Dialog-->
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_start">Start</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_retry">Retry</string>
+    <string name="dialog_loading">Loading</string>
+    <string name="dialog_title_problem" translatable="false">Problem…</string>
+    <string name="dialog_confirm">Confirm</string>
+    <string name="dialog_confirmation">Confirmation</string>
+    <string name="dialog_error_authorization">You are not authorized</string>
+    <string name="dialog_error_network">No internet connection</string>
+    <string name="dialog_error_unknown">Unknown error</string>
+    <string name="dialog_info_title">Info</string>
+    <string name="dialog_success">Success!</string>
+    <string name="dialog_are_you_sure">Are you sure?</string>
+</resources>
