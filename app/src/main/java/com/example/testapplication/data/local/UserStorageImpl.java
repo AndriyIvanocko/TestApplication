@@ -4,6 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 
+import androidx.annotation.Nullable;
+
+import com.example.testapplication.domain.model.user.LoginModel;
+import com.example.testapplication.domain.model.user.UserModel;
+import com.google.gson.Gson;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -11,31 +17,36 @@ import javax.inject.Singleton;
 public class UserStorageImpl implements UserStorage {
     private static final String USER_PREF_PATH = "user_prefferences";
     private static final String USER_PREF = "user";
+    private static final String LOGIN_PREF = "login";
 
     private SharedPreferences mPreferences;
-    //private UserModel mUser;
+    private UserModel mUser;
+    private String token;
 
     @Inject
     public UserStorageImpl(final Context context) {
         mPreferences = context.getSharedPreferences(USER_PREF_PATH, Context.MODE_PRIVATE);
-        //TODO create user from Json
-        //mUser = new Gson().fromJson(mPreferences.getString(USER_PREF, null), UserModel.class);
+        mUser = new Gson().fromJson(mPreferences.getString(USER_PREF, null), UserModel.class);
+        token = mPreferences.getString(LOGIN_PREF, "");
     }
 
     @Override
     public String getToken() {
-        // TODO get token from user
-        //return mUser != null ? mUser.getAuthenticationToken() : null;
-        return "";
+        return mUser != null ? token : null;
+    }
+
+    @Override
+    public void setToken(String token) {
+        this.token = token;
+        mPreferences.edit().putString(LOGIN_PREF, token).apply();
     }
 
     @Override
     public void clearUserData() {
-        //TODO uncomment when user model will be added
-        //setUser(null);
+        setUser(null);
     }
 
-    /*@Nullable
+    @Nullable
     @Override
     public UserModel getUser() {
         return mUser;
@@ -49,11 +60,10 @@ public class UserStorageImpl implements UserStorage {
         } else {
             mPreferences.edit().putString(USER_PREF, new Gson().toJson(mUser, UserModel.class)).apply();
         }
-    }*/
+    }
 
     @Override
     public boolean isSignedIn() {
-//        return mUser != null;
-        return false;
+        return mUser != null;
     }
 }

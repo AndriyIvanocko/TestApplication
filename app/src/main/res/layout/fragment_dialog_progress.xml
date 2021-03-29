@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="48dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <!-- A blank view to force the layout to be full-width -->
     <View
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="10dp"
-            tools:text="loading" />
+            android:text="@string/dialog_loading" />
 
 
     </LinearLayout>

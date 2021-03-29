@@ -1,5 +1,7 @@
 package com.example.testapplication.di.modules;
 
+import com.example.testapplication.data.network.service.ProjectApiService;
+import com.example.testapplication.data.network.service.UserApiService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.example.testapplication.data.network.config.DefaultNetworkConfigImpl;
@@ -46,11 +48,15 @@ public class NetworkModule {
                 .build();
     }
 
-    //TODO provides api services
-
-    /*@Singleton
+    @Singleton
     @Provides
-    UserApiService provideUserApiService(final @Named("api") Retrofit retrofit) {
+    UserApiService provideUserApiService(final Retrofit retrofit) {
         return retrofit.create(UserApiService.class);
-    }*/
+    }
+
+    @Singleton
+    @Provides
+    ProjectApiService provideProjectApiService(final Retrofit retrofit){
+        return retrofit.create(ProjectApiService.class);
+    }
 }

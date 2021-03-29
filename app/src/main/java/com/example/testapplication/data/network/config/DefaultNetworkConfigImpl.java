@@ -1,6 +1,8 @@
 package com.example.testapplication.data.network.config;
 
 //import com.example.testapplication.BuildConfig;
+
+import com.example.testapplication.BuildConfig;
 import com.example.testapplication.data.local.UserStorage;
 
 import java.util.ArrayList;
@@ -33,14 +35,13 @@ public class DefaultNetworkConfigImpl implements NetworkConfiguration {
     }
 
     private String getAuthToken() {
-        //return mUserStorage.getToken() != null ? ApiPathConst.HEADER_TOKEN_PREFIX + mUserStorage.getToken() : null;
-        //TODO get token from user data
-        return "";
+        return mUserStorage.getToken() != null ? ApiPathConst.HEADER_TOKEN_PREFIX + mUserStorage.getToken() : null;
     }
 
     @Override
     public String getBaseUrl() {
-        return ApiPathConst.API_BASE_URL + ApiPathConst.API_PATH;
+        return ApiPathConst.API_BASE_URL;
+//                + ApiPathConst.API_PATH;
     }
 
     @Override
@@ -54,7 +55,7 @@ public class DefaultNetworkConfigImpl implements NetworkConfiguration {
     }
 
     private Interceptor getLoggingInterceptor() {
-//        if (!BuildConfig.DEBUG) return null;
+        if (!BuildConfig.DEBUG) return null;
         final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         return logging;

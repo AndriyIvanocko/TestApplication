@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">TestLab</string>
 
     <!--Dialog-->
     <string name="dialog_yes">Yes</string>
@@ -8,7 +8,7 @@
     <string name="dialog_start">Start</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_retry">Retry</string>
-    <string name="dialog_loading">Loading</string>
+    <string name="dialog_loading">Loading…</string>
     <string name="dialog_title_problem" translatable="false">Problem…</string>
     <string name="dialog_confirm">Confirm</string>
     <string name="dialog_confirmation">Confirmation</string>
@@ -18,4 +18,14 @@
     <string name="dialog_info_title">Info</string>
     <string name="dialog_success">Success!</string>
     <string name="dialog_are_you_sure">Are you sure?</string>
+
+    <!-- Errors -->
+    <string name="error_password">You have empty password or password less than 6 symbols</string>
+    <string name="error_email">"You have empty email or email isn't correct"</string>
+
+    <!-- Login Activity -->
+    <string name="activity_login_button">Login</string>
+    <string name="activity_login_password">Password</string>
+    <string name="activity_login_email">Email</string>
+    <string name="activity_login_forgot_password">Forgot password?</string>
 </resources>

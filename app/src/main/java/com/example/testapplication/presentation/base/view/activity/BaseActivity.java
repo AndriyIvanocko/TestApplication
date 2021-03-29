@@ -19,6 +19,7 @@ import androidx.collection.LongSparseArray;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.testapplication.presentation.App;
+import com.example.testapplication.presentation.ui.login.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.example.testapplication.R;
 import com.example.testapplication.di.components.ActivityComponent;
@@ -430,6 +431,6 @@ public abstract class BaseActivity<P extends Presenter> extends AppCompatActivit
     @Override
     public void openLoginActivity() {
         // TODO add first activity
-        //startActivityResetBackStack(LoginActivity.getLaunchIntent(this));
+        startActivityResetBackStack(LoginActivity.getLaunchIntent(this));
     }
 }

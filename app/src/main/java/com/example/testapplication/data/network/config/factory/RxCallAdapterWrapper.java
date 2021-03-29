@@ -53,13 +53,6 @@ public class RxCallAdapterWrapper<R> implements CallAdapter<R, Object> {
             return ((Completable) o).onErrorResumeNext(throwable -> Completable.error(handleErrorToShow(throwable)));
         else if (o instanceof Single)
             return ((Single) o).doOnSuccess(o1 -> {
-                //Make additional checks for errors
-                //if (o1 instanceof BaseResponse) {
-                //    BaseResponse response = (BaseResponse) o1;
-                //    if (response.getStatusCode() != 0) {
-                //        throw new ServerError(response.getStatusCode(), response.getError());
-                //    }
-                //}
             }).onErrorResumeNext(new Function<Throwable, SingleSource>() {
                 @Override
                 public SingleSource apply(Throwable throwable) throws Exception {
@@ -68,13 +61,6 @@ public class RxCallAdapterWrapper<R> implements CallAdapter<R, Object> {
             });
         else if (o instanceof Observable) {
             return ((Observable) o).doOnNext(o1 -> {
-                //Make additional checks for errors
-                //if (o1 instanceof BaseResponse) {
-                //    BaseResponse response = (BaseResponse) o1;
-                //    if (response.getStatusCode() != 0) {
-                //        throw new ServerError(response.getStatusCode(), response.getError());
-                //    }
-                //}
             }).onErrorResumeNext(new Function<Throwable, ObservableSource>() {
                 @Override
                 public ObservableSource apply(final Throwable throwable) throws Exception {
@@ -87,14 +73,12 @@ public class RxCallAdapterWrapper<R> implements CallAdapter<R, Object> {
 
     private RetrofitException handleErrorToShow(Throwable throwable) {
         RetrofitException retrofitException = asRetrofitException(throwable);
-//            mErrorManager.handleError(retrofitException);
         return retrofitException;
     }
 
     public RetrofitException asRetrofitException(Throwable throwable) {
         if (throwable instanceof NullPointerException) {
             Log.e(TAG, throwable.getLocalizedMessage());
-//            Log.getStackTraceString(throwable);
         }
 
         if (throwable instanceof ServerError) {

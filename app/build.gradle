@@ -37,12 +37,12 @@ dependencies {
     implementation "androidx.cardview:cardview:$androidx_support_version"
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //DAGGER 2
-    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger:2.29.1"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 
     //RETROFIT 2
@@ -62,11 +62,11 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
 
     //GLIDE
-    implementation "com.github.bumptech.glide:glide:$glide_version"
+    implementation "com.github.bumptech.glide:glide:4.12.0"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
     //BUTTERKNIFE
-    implementation "com.jakewharton:butterknife:$butterknife_version"
+    implementation "com.jakewharton:butterknife:10.2.1"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife_version"
 
 }

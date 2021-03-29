@@ -1,11 +1,15 @@
 package com.example.testapplication.data.local;
 
 
+import com.example.testapplication.domain.model.user.UserModel;
+
 /**
  * Created by Anatoliy Mizyakin on 27.09.2018.
  */
 public interface UserStorage {
     String getToken();
+
+    void setToken(String token);
 
     void clearUserData();
 
@@ -13,7 +17,7 @@ public interface UserStorage {
 
     boolean isSignedIn();
 
-//    UserModel getUser();
+    UserModel getUser();
 
-//    void setUser(UserModel user);
+    void setUser(UserModel user);
 }
