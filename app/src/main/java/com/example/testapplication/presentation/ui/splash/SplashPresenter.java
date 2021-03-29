@@ -1,5 +1,8 @@
 package com.example.testapplication.presentation.ui.splash;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import com.example.testapplication.di.scopes.ConfigPersistentScope;
 import com.example.testapplication.domain.model.user.UserModel;
 import com.example.testapplication.presentation.base.presenter.BaseErrorHandlingPresenter;
@@ -15,10 +18,13 @@ public class SplashPresenter extends BaseErrorHandlingPresenter<SplashView> {
     }
 
     public void setModel() {
-        if(mUserStorage.isSignedIn()){
-            getView().openMainActivity();
-        } else {
-            getView().openLoginActivity();
-        }
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            if (mUserStorage.isSignedIn()) {
+                getView().openMainActivity();
+            } else {
+                getView().openLoginActivity();
+            }
+
+        }, 1000);
     }
 }

@@ -39,9 +39,6 @@ public class UserData {
     @Expose
     @SerializedName("dta_activity")
     private String mDtaActivity;
-//    @Expose
-//    @SerializedName("is_online")
-//    private boolean mIsOnline;
     @Expose
     @SerializedName("timezone_offset")
     private int mTimezoneOffset;
@@ -148,14 +145,6 @@ public class UserData {
     public void setDtaActivity(String mDtaActivity) {
         this.mDtaActivity = mDtaActivity;
     }
-
-    public boolean getIsOnline() {
-        return false;
-    }
-
-//    public void setIsOnline(boolean mIsOnline) {
-//        this.mIsOnline = mIsOnline;
-//    }
 
     public int getTimezoneOffset() {
         return mTimezoneOffset;

@@ -27,6 +27,6 @@ public class SplashActivity extends BaseFullscreenActivity<SplashPresenter> impl
 
     @Override
     public void openMainActivity() {
-        startActivity(MainActivity.getLaunchIntent(this));
+        startActivityResetBackStack(MainActivity.getLaunchIntent(this));
     }
 }

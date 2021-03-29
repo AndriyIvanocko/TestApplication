@@ -18,7 +18,6 @@ public class UserModel implements Parcelable {
     private int mIdCompany;
     private boolean mIsActive;
     private String mDtaActivity;
-    private boolean mIsOnline;
     private int mTimezoneOffset;
     private String mDtaCreate;
     private String mAvatarUrl;
@@ -41,7 +40,6 @@ public class UserModel implements Parcelable {
         mIdCompany = in.readInt();
         mIsActive = in.readByte() != 0;
         mDtaActivity = in.readString();
-        mIsOnline = in.readByte() != 0;
         mTimezoneOffset = in.readInt();
         mDtaCreate = in.readString();
         mAvatarUrl = in.readString();
@@ -63,7 +61,6 @@ public class UserModel implements Parcelable {
         dest.writeInt(mIdCompany);
         dest.writeByte((byte) (mIsActive ? 1 : 0));
         dest.writeString(mDtaActivity);
-        dest.writeInt((byte) (mIsOnline ? 1 : 0));
         dest.writeInt(mTimezoneOffset);
         dest.writeString(mDtaCreate);
         dest.writeString(mAvatarUrl);
@@ -175,14 +172,6 @@ public class UserModel implements Parcelable {
 
     public void setDtaActivity(String mDtaActivity) {
         this.mDtaActivity = mDtaActivity;
-    }
-
-    public boolean getIsOnline() {
-        return mIsOnline;
-    }
-
-    public void setIsOnline(boolean mIsOnline) {
-        this.mIsOnline = mIsOnline;
     }
 
     public int getTimezoneOffset() {

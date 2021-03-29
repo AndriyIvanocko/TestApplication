@@ -17,6 +17,11 @@ import java.util.Locale;
 import butterknife.BindView;
 
 public class ProjectAdapter extends BaseListAdapter<ProjectModel, ProjectAdapter.ProjectViewHolder> {
+    private final OnProjectClickListener projectClickListener;
+
+    public ProjectAdapter(OnProjectClickListener projectClickListener) {
+        this.projectClickListener = projectClickListener;
+    }
 
     @Override
     protected int getLayoutResource() {
@@ -26,6 +31,13 @@ public class ProjectAdapter extends BaseListAdapter<ProjectModel, ProjectAdapter
     @Override
     protected ProjectViewHolder createViewHolder(View itemView) {
         return new ProjectViewHolder(itemView);
+    }
+
+    public void updateName(String name) {
+        if (getSelectedIndex() > -1) {
+            getItem(getSelectedIndex()).setName(name);
+            setSelectedIndex(getSelectedIndex());
+        }
     }
 
     protected class ProjectViewHolder extends BaseListViewHolder<ProjectModel> {
@@ -39,16 +51,26 @@ public class ProjectAdapter extends BaseListAdapter<ProjectModel, ProjectAdapter
 
         public ProjectViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(v -> {
+                setSelectedIndex(getAdapterPosition());
+                projectClickListener.onPressed(getItem(getAdapterPosition()));
+            });
         }
 
         @Override
         protected void onBind(ProjectModel item, int position) {
             mProjectTitle.setText(item.getName());
-            if(!item.getUsers().isEmpty())
+            if (!item.getUsers().isEmpty())
                 mWorkerCount.setText(String.format(Locale.getDefault(), "%d workers", item.getUsers().size()));
+            else
+                mWorkerCount.setText("");
             Glide.with(itemView)
                     .load(item.getLogoUrl())
                     .into(mProjectImage);
         }
+    }
+
+    public interface OnProjectClickListener {
+        void onPressed(ProjectModel item);
     }
 }

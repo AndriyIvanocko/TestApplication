@@ -57,7 +57,6 @@ public class UserTransformer {
             model.setIsTimerOnline(data.getIsTimerOnline());
             model.setIsTelegramConnected(data.getIsTelegramConnected());
             model.setIsSharedFromMe(data.getIsSharedFromMe());
-            model.setIsOnline(data.getIsOnline());
             model.setIsActive(data.getIsActive());
             model.setIdCompany(data.getIdCompany());
             model.setEmail(data.getEmail());

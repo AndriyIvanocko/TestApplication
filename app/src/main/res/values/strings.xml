@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">TestLab</string>
 
+    <!-- Menu -->
+    <string name="menu_save">Save</string>
+
     <!--Dialog-->
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
@@ -20,12 +23,20 @@
     <string name="dialog_are_you_sure">Are you sure?</string>
 
     <!-- Errors -->
+    <string name="error_title">Error</string>
     <string name="error_password">You have empty password or password less than 6 symbols</string>
     <string name="error_email">"You have empty email or email isn't correct"</string>
+    <string name="error_project_name">You have set empty name for project</string>
+    <string name="error_project_id">You have set wrong project id</string>
+    <string name="error_empty_list">List is empty</string>
 
     <!-- Login Activity -->
     <string name="activity_login_button">Login</string>
     <string name="activity_login_password">Password</string>
     <string name="activity_login_email">Email</string>
     <string name="activity_login_forgot_password">Forgot password?</string>
+
+    <!-- Login Activity -->
+    <string name="activity_project_detail_title">Project detail</string>
+
 </resources>

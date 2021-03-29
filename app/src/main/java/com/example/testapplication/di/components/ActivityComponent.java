@@ -4,6 +4,7 @@ import com.example.testapplication.di.modules.ActivityModule;
 import com.example.testapplication.di.scopes.PerActivityScope;
 import com.example.testapplication.presentation.ui.login.LoginActivity;
 import com.example.testapplication.presentation.ui.main.MainActivity;
+import com.example.testapplication.presentation.ui.main.detail.ProjectDetailActivity;
 import com.example.testapplication.presentation.ui.splash.SplashActivity;
 
 import dagger.Subcomponent;
@@ -17,6 +18,6 @@ public interface ActivityComponent {
 
     void inject(LoginActivity loginActivity);
 
-    //void inject(LoginActivity loginActivity);
+    void inject(ProjectDetailActivity projectDetailActivity);
 
 }
