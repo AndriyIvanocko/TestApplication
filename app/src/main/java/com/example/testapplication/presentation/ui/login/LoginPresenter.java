@@ -15,14 +15,15 @@ import javax.inject.Inject;
 @ConfigPersistentScope
 public class LoginPresenter extends BaseErrorHandlingPresenter<LoginView> {
     private final LoginUseCase mLoginUseCase;
+
     @Inject
     public LoginPresenter(LoginUseCase mLoginUseCase) {
         this.mLoginUseCase = mLoginUseCase;
     }
 
-    public void login(Editable email, Editable password){
-        if(validateFields(email.toString(), password.toString())) {
-            mLoginUseCase.setData("vitaliibondtest@gmail.com", "vitaliibondtest");
+    public void login(Editable email, Editable password) {
+        if (validateFields(email.toString(), password.toString())) {
+            mLoginUseCase.setData(email.toString(), password.toString());
             runBackgroundAction(mLoginUseCase, (BackgroundAction<LoginModel>) data -> {
                 getView().showProgress(false);
                 mUserStorage.setToken(data.getToken());
@@ -34,14 +35,14 @@ public class LoginPresenter extends BaseErrorHandlingPresenter<LoginView> {
 
     private boolean validateFields(String email, String password) {
         boolean valid = true;
-        if(!Validator.isCorrectEmail(email)){
+        if (!Validator.isCorrectEmail(email)) {
             valid = false;
             getView().showEmailError(true);
         } else {
             getView().showEmailError(false);
         }
 
-        if(!Validator.isCorrectPassword(password)){
+        if (!Validator.isCorrectPassword(password)) {
             valid = false;
             getView().showPasswordError(true);
         } else {
